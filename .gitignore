@@ -40,6 +40,7 @@
 !/tmux-sessionizer/
 |/tmux-sessionizer-config/
 !/uwsm
+!vsg/
 !/vim/
 !/waybar/
 !/xava/
@@ -79,6 +80,7 @@
 |/tmux-sessionizer-config/**
 !/uwsm/**
 !/vim/**
+!vsg/**
 !/waybar/**
 !/xava/**
 !/zsh/**
@@ -95,6 +97,7 @@ lf/lf source code
 ironbar/ironbar
 thefuck/__pycache__/settings.cpython-312.pyc
 /polybar.old/weather-polybar-plugin/.owm-key
+
 
 
 
