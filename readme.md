@@ -54,6 +54,12 @@ sudo pacman -S rofi-wayland
 To install in one go:
 
 ```bash
+if [[ "$(uname -s)" == "Darwin" ]]; then
+    brew install coreutils
+    alias mv='gmv'
+fi
+
+
 git clone --branch desktop --depth 1 https://github.com/PoutineSyropErable/config_all ~/.config_poutine/
 
 # or write laptop, but i mostly work on the desktop branch, as due to submodules, those who need can be branched themselves.

@@ -9,6 +9,7 @@
 
 # Track only specific folders (explicit allowlist)
 !/awesome/
+!/aerospace/
 !/aconfmgr/
 !/bash/
 !/cava/
@@ -36,6 +37,7 @@
 !/rmpc/
 !/rofi/
 !/sway/
+!/sketchybar/
 !/tmux/
 !/tmux-sessionizer/
 |/tmux-sessionizer-config/
@@ -48,6 +50,7 @@
 
 # Recursively include their contents
 !/awesome/**
+!/aerospace/**
 !/aconfmgr/**
 !/bash/**
 !/cava/**
@@ -74,6 +77,7 @@
 !/polybar.old/**
 !/rmpc/**
 !/rofi/**
+!/sketchybar/**
 !/sway/**
 !/tmux/**
 !/tmux-sessionizer/**

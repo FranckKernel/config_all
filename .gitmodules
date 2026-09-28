@@ -1,7 +1,12 @@
 [submodule "aconfmgr"]
-
 	path = aconfmgr
 	url = https://github.com/PoutineSyropErable/config_aconfmgr
+	branch = master
+
+
+[submodule "aerospace"]
+	path = aerospace
+	url = https://github.com/PoutineSyropErable/config_aerospace
 	branch = master
 
 
@@ -69,6 +74,12 @@
 [submodule "rofi"]
 	path = rofi
 	url = https://github.com/PoutineSyropErable/config_rofi
+	branch = master
+
+
+[submodule "sketchybar"]
+	path = sketchybar
+	url = https://github.com/PoutineSyropErable/config_sketchybar
 	branch = master
 
 [submodule "tmux"]
