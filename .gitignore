@@ -40,7 +40,7 @@
 !/tmux-sessionizer/
 |/tmux-sessionizer-config/
 !/uwsm
-!vsg/
+!/vsg
 !/vim/
 !/waybar/
 !/xava/
@@ -79,6 +79,7 @@
 !/tmux-sessionizer/**
 |/tmux-sessionizer-config/**
 !/uwsm/**
+!/uwsm/vsg
 !/vim/**
 !vsg/**
 !/waybar/**
