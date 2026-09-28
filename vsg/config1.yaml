@@ -1,0 +1,30 @@
+rule:
+  signal_007:
+    disable: true
+
+  instantiation_034:
+    disable: true
+
+  process_016:
+    disable: true
+
+  process_018:
+    disable: true
+
+  whitespace_001:
+    disable: true
+
+  whitespace_002:
+    disable: true
+
+  instantiation_005:
+    disable: true
+
+  port_map_005:
+    disable: true
+
+  instantiation_003:
+    disable: true
+
+  process_002:
+    disable: true

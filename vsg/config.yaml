@@ -1,0 +1,166 @@
+rule:
+
+  global:
+    indent_style: smart_tabs
+    indent_size: 4
+
+  # Require signals to have an initial/default value.
+  # Disabled because signals do not need to be initialized.
+  signal_007:
+    disable: true
+
+  # Enforces VSG's preferred formatting for entity instantiations.
+  # Disabled because this is purely a style preference.
+  instantiation_034:
+    disable: true
+
+  # Requires every process to have a label.
+  # Disabled because process labels are optional in VHDL.
+  process_016:
+    disable: true
+
+  # Requires the process label to be repeated after "end process".
+  # Disabled because this is purely a style preference.
+  process_018:
+    disable: true
+
+  # Requires "port map" to be placed on a new line.
+  # Disabled because this is purely a formatting preference.
+  instantiation_005:
+    disable: true
+
+  # Requires each port-map association to be on its own line.
+  # Disabled because this is purely a formatting preference.
+  port_map_005:
+    disable: false
+
+  # Requires a space before ":" in an instantiation label.
+  # Disabled because this is purely a whitespace preference.
+  instantiation_003:
+    disable: true
+
+  # Requires a space between "process" and "(".
+  # Disabled because this is purely a whitespace preference.
+  process_002:
+    disable: true
+
+  # Requires the architecture name after "end architecture".
+  # Disabled because this is purely a style preference.
+  architecture_024:
+    disable: true
+
+  # Keep this enabled: explicitly identify the architecture
+  # used by direct entity instantiations.
+  # So no issues with the prof's given code
+  instantiation_036:
+    disable: true
+
+  # Requires default assignments on output ports to be removed.
+  # Disabled to avoid modifying the provided code.
+  port_012:
+    disable: true
+
+
+  # Requires blank lines around the architecture begin statement.
+  # Disabled because this is purely a formatting preference.
+  architecture_015:
+    disable: true
+
+  architecture_016:
+    disable: true
+
+
+
+
+  # whitespace_001 and whitespace_002 are intentionally not disabled:
+  # whitespace_001 → disallows trailing whitespace.
+  # whitespace_002 → disallows tabs.
+
+
+  # Preserve the capitalization used in the source code.
+  # Disabled so VSG does not change identifier/keyword case.
+  case_001:
+    disable: true
+  case_002:
+    disable: true
+  case_003:
+    disable: true
+  case_004:
+    disable: true
+  case_005:
+    disable: true
+
+
+  # Preserve capitalization of port names.
+  port_010:
+    disable: true
+  port_map_002:
+    disable: true
+
+  # capitalization for generics 
+  generic_007: 
+    disable: true
+
+
+
+
+
+  # Preserve capitalization of architecture names.
+  architecture_014:
+    disable: true
+
+  # Preserve capitalization of constant names.
+  constant_004:
+    disable: true
+
+  constant_013:
+    disable: true
+
+  # Preserve capitalization of signal names.
+  signal_004:
+    disable: true
+  # Preserve capitalization of entity names.
+  entity_008:
+    disable: true
+
+
+  library_008:
+    disable: true
+
+
+  procedure_013:
+    disable: true
+  procedure_014:
+    disable: true
+  subprogram_body_203:
+    disable: true
+  subprogram_body_204:
+    disable: true
+
+
+  procedure_508: 
+    disable: true
+  procedure_501: 
+    disable: true
+  if_008: 
+    disable: true
+  if_006: 
+    disable: true
+  if_011: 
+    disable: true
+  variable_004:
+    disable: true
+  generic_map_002: 
+    disable: true
+
+  type_004:
+    disable: true
+  type_500:
+    disable: true
+  type_010:
+    disable: true
+
+  subprogram_body_201:
+    disable: true
+  subprogram_body_202:
+    disable: true
