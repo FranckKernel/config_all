@@ -1,117 +1,117 @@
 [submodule "aconfmgr"]
 	path = aconfmgr
-	url = https://github.com/PoutineSyropErable/config_aconfmgr
+	url = https://github.com/FranckKernel/config_aconfmgr
 	branch = master
 
 
 [submodule "aerospace"]
 	path = aerospace
-	url = https://github.com/PoutineSyropErable/config_aerospace
+	url = https://github.com/FranckKernel/config_sketchybar
 	branch = master
 
 
 [submodule "cava"]
 	path = cava
-	url = https://github.com/PoutineSyropErable/config_cava
+	url = https://github.com/FranckKernel/config_cava
 	branch = master
 
 [submodule "eww"]
 	path = eww
-	url = https://github.com/PoutineSyropErable/config_eww
+	url = https://github.com/FranckKernel/config_eww
 	branch = topbar
 
 [submodule "fish"]
 	path = fish
-	url = https://github.com/PoutineSyropErable/config_fish
+	url = https://github.com/FranckKernel/config_fish
 	branch = master
 
 
 [submodule "gdb"]
 	path = gdb
-	url = https://github.com/PoutineSyropErable/config_gdb
+	url = https://github.com/FranckKernel/config_gdb
 	branch = master
 
 [submodule "hypr"]
 	path = hypr
-	url = https://github.com/PoutineSyropErable/config_hypr
+	url = https://github.com/FranckKernel/config_hypr
 
 [submodule "i3"]
 	path = i3
-	url = https://github.com/PoutineSyropErable/config_i3
+	url = https://github.com/FranckKernel/config_i3
 	branch = master
 
 [submodule "ironbar"]
 	path = ironbar
-	url = https://github.com/PoutineSyropErable/config_ironbar
+	url = https://github.com/FranckKernel/config_ironbar
 	branch = master
 
 
 [submodule "kanata"]
 	path = kanata
-	url = https://github.com/PoutineSyropErable/config_kanata
+	url = https://github.com/FranckKernel/config_kanata
 	branch = master
 
 [submodule "kitty"]
 	path = kitty
-	url = https://github.com/PoutineSyropErable/config_kitty
+	url = https://github.com/FranckKernel/config_kitty
 	branch = master
 
 [submodule "lf"]
 	path = lf
-	url = https://github.com/PoutineSyropErable/config_lf
+	url = https://github.com/FranckKernel/config_lf
 	branch = master
 
 [submodule "nvim"]
 	path = nvim
-	url = https://github.com/PoutineSyropErable/config_nvim
+	url = https://github.com/FranckKernel/config_nvim
 	branch = master
 
 
 [submodule "rmpc"]
 	path = rmpc
-	url = https://github.com/PoutineSyropErable/config_rmpc
+	url = https://github.com/FranckKernel/config_rmpc
 
 [submodule "rofi"]
 	path = rofi
-	url = https://github.com/PoutineSyropErable/config_rofi
+	url = https://github.com/FranckKernel/config_rofi
 	branch = master
 
 
 [submodule "sketchybar"]
 	path = sketchybar
-	url = https://github.com/PoutineSyropErable/config_sketchybar
+	url = https://github.com/FranckKernel/config_sketchybar
 	branch = master
 
 [submodule "tmux"]
 	path = tmux
-	url = https://github.com/PoutineSyropErable/config_tmux
+	url = https://github.com/FranckKernel/config_tmux
 	branch = master
 
 [submodule "tmux-sessionizer"]
 	path = tmux-sessionizer
-	url = https://github.com/PoutineSyropErable/config_tmux-sessionizer
+	url = https://github.com/FranckKernel/config_tmux-sessionizer
 
 [submodule "vim"]
 	path = vim
-	url = https://github.com/PoutineSyropErable/config_vim
+	url = https://github.com/FranckKernel/config_vim
 
 [submodule "waybar"]
 	path = waybar
-	url = https://github.com/PoutineSyropErable/config_waybar
+	url = https://github.com/FranckKernel/config_waybar
 	branch = master
 
 [submodule "xava"]
 	path = xava
-	url = https://github.com/PoutineSyropErable/config_xava
+	url = https://github.com/FranckKernel/config_xava
 	branch = master
 
 [submodule "zsh"]
 	path = zsh
-	url = https://github.com/PoutineSyropErable/config_zsh
+	url = https://github.com/FranckKernel/config_zsh
 	branch = master
 
 # === New ones. Unsorted
 [submodule "test"]
 	path = test
-	url = https://github.com/PoutineSyropErable/config_test
+	url = https://github.com/FranckKernel/config_test
 
