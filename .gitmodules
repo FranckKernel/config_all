@@ -64,7 +64,7 @@
 [submodule "nvim"]
 	path = nvim
 	url = https://github.com/FranckKernel/config_nvim
-	branch = master
+	branch = fully_lazy
 
 
 [submodule "rmpc"]
@@ -94,6 +94,12 @@
 [submodule "vim"]
 	path = vim
 	url = https://github.com/FranckKernel/config_vim
+
+
+[submodule "vsg"]
+	path = vsg
+	url = https://github.com/FranckKernel/config_vsg
+
 
 [submodule "waybar"]
 	path = waybar
