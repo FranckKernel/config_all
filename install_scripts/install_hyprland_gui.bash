@@ -1,18 +1,22 @@
 #!/usr/bin/env bash
 
-#!/usr/bin/env bash
-
 # Hyprland is Linux only
 if [[ "$(uname -s)" != "Linux" ]]; then
 	echo "Not Linux, skipping hyprland install."
 	exit 0
 fi
 
-HYPR_REPO="https://github.com/FranckKernel/config_hypr" # <-- change to your repo
+HYPR_REPO="https://github.com/FranckKernel/config_hypr"
 HYPR_DIR="$HOME/.config/hypr"
 
-ROFI_REPO="https://github.com/FranckKernel/config_rofi" # <-- change to your repo
+ROFI_REPO="https://github.com/FranckKernel/config_rofi"
 ROFI_DIR="$HOME/.config/rofi"
+
+WAYBAR_REPO="https://github.com/FranckKernel/config_ironbar"
+WAYBAR_DIR="$HOME/.config/ironbar"
+
+IRONBAR_REPO="https://github.com/FranckKernel/config_ironbar"
+IRONBAR_DIR="$HOME/.config/ironbar"
 
 # ---------- GitHub config ----------
 # Back up an existing config with a timestamp. Numbered backups of a
@@ -37,6 +41,8 @@ safe_clone() {
 
 safe_clone "$HYPR_REPO" "$HYPR_DIR"
 safe_clone "$ROFI_REPO" "$ROFI_DIR"
+safe_clone "$IRONBAR_REPO" "$IRONBAR_DIR"
+safe_clone "$WAYBAR_REPO" "$WAYBAR_DIR"
 
 # ---------- Packages ----------
 have() { command -v "$1" >/dev/null 2>&1; }
@@ -44,10 +50,10 @@ have() { command -v "$1" >/dev/null 2>&1; }
 # Edit this list to taste
 if have pacman; then
 	sudo pacman -S --needed --noconfirm \
-		hyprland xdg-desktop-portal-hyprland kitty waybar rofi hyprpaper hyprlock hypridle
+		hyprland xdg-desktop-portal-hyprland kitty waybar rofi hyprpaper hyprlock hypridle waybar ironbar
 elif have dnf; then
 	sudo dnf install -y \
-		hyprland xdg-desktop-portal-hyprland kitty waybar wofi hyprpaper hyprlock hypridle
+		hyprland xdg-desktop-portal-hyprland kitty waybar wofi hyprpaper hyprlock hypridle waybar ironbar
 else
 	echo "no supported package manager (pacman/dnf) found" >&2
 	exit 1

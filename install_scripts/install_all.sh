@@ -11,7 +11,7 @@ SCRIPTS=(
 	install_tmux.bash
 	install_lf.bash
 	install_nvim.bash
-	install_hyprland_rofi.bash
+	install_hyprland_gui.bash
 )
 
 for script in "${SCRIPTS[@]}"; do
