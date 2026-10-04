@@ -1,28 +1,39 @@
-[submodule "eww"]
-	path = eww
-	url = https://github.com/FranckKernel/config_eww.git
+[submodule "aconfmgr"]
+	path = aconfmgr
+	url = https://github.com/FranckKernel/config_aconfmgr
 	branch = master
 
-[submodule "nvim"]
-	path = nvim
-	url = https://github.com/FranckKernel/config_nvim
+
+[submodule "aerospace"]
+	path = aerospace
+	url = https://github.com/FranckKernel/config_aerospace
 	branch = master
+
+
+[submodule "cava"]
+	path = cava
+	url = https://github.com/FranckKernel/config_cava
+	branch = master
+
+[submodule "eww"]
+	path = eww
+	url = https://github.com/FranckKernel/config_eww
+	branch = topbar
 
 [submodule "fish"]
 	path = fish
 	url = https://github.com/FranckKernel/config_fish
 	branch = master
 
-[submodule "tmux"]
-	path = tmux
-	url = https://github.com/FranckKernel/config_tmux.git
+
+[submodule "gdb"]
+	path = gdb
+	url = https://github.com/FranckKernel/config_gdb
 	branch = master
 
-[submodule "kanata"]
-	path = kanata
-	url = https://github.com/FranckKernel/config_kanata
-	branch = master
-
+[submodule "hypr"]
+	path = hypr
+	url = https://github.com/FranckKernel/config_hypr
 
 [submodule "i3"]
 	path = i3
@@ -34,14 +45,10 @@
 	url = https://github.com/FranckKernel/config_ironbar
 	branch = master
 
-[submodule "xava"]
-	path = xava
-	url = https://github.com/FranckKernel/config_xava
-	branch = master
 
-[submodule "cava"]
-	path = cava
-	url = https://github.com/FranckKernel/config_cava
+[submodule "kanata"]
+	path = kanata
+	url = https://github.com/FranckKernel/config_kanata
 	branch = master
 
 [submodule "kitty"]
@@ -54,16 +61,64 @@
 	url = https://github.com/FranckKernel/config_lf
 	branch = master
 
+[submodule "nvim"]
+	path = nvim
+	url = https://github.com/FranckKernel/config_nvim
+	branch = fully_lazy
+
+
+[submodule "rmpc"]
+	path = rmpc
+	url = https://github.com/FranckKernel/config_rmpc
+
 [submodule "rofi"]
 	path = rofi
 	url = https://github.com/FranckKernel/config_rofi
 	branch = master
 
 
+[submodule "sketchybar"]
+	path = sketchybar
+	url = https://github.com/FranckKernel/config_sketchybar
+	branch = master
+
+[submodule "tmux"]
+	path = tmux
+	url = https://github.com/FranckKernel/config_tmux
+	branch = master
+
+[submodule "tmux-sessionizer"]
+	path = tmux-sessionizer
+	url = https://github.com/FranckKernel/config_tmux-sessionizer
+
+[submodule "vim"]
+	path = vim
+	url = https://github.com/FranckKernel/config_vim
+
+
+[submodule "vsg"]
+	path = vsg
+	url = https://github.com/FranckKernel/config_vsg
+
+
 [submodule "waybar"]
 	path = waybar
-	url = https://github.com/FranckKernel/config_waybar.git
+	url = https://github.com/FranckKernel/config_waybar
 	branch = master
-[submodule "hypr"]
-	path = hypr
-	url = https://github.com/FranckKernel/config_hypr.git
+
+[submodule "xava"]
+	path = xava
+	url = https://github.com/FranckKernel/config_xava
+	branch = master
+
+[submodule "zsh"]
+	path = zsh
+	url = https://github.com/FranckKernel/config_zsh
+	branch = master
+
+# === New ones. Unsorted
+[submodule "test"]
+	path = test
+	url = https://github.com/FranckKernel/config_test
+
+
