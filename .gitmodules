@@ -6,7 +6,7 @@
 
 [submodule "aerospace"]
 	path = aerospace
-	url = https://github.com/FranckKernel/config_sketchybar
+	url = https://github.com/FranckKernel/config_aerospace
 	branch = master
 
 
