@@ -51,7 +51,11 @@ sudo pacman -S rofi-wayland
 # You get it, config_{dirname}, you can also just click on the dir that are submodules (The blue ones on github) and you'll be moved there
 </pre>
 
-To install in one go:
+To install in one go, One simple command. Should work on Arch, Fedora and MacOS:
+```bash 
+curl -fsSL https://raw.githubusercontent.com/FranckKernel/config_all/desktop/install_scripts/install_all.bash | bash
+```
+
 
 ```bash
 if [[ "$(uname -s)" == "Darwin" ]]; then

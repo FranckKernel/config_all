@@ -22,6 +22,7 @@
 !/hypr/
 !/i3/
 !/ironbar/
+!/install_scripts/
 !/kanata/
 !/kitty/
 !/lf/
@@ -40,7 +41,7 @@
 !/sketchybar/
 !/tmux/
 !/tmux-sessionizer/
-|/tmux-sessionizer-config/
+!/tmux-sessionizer-config/
 !/uwsm
 !/vsg
 !/vim/
@@ -63,6 +64,7 @@
 !/hypr/**
 !/i3/**
 !/ironbar/**
+!/install_scripts/**
 !/kanata/**
 !/kitty/**
 !/lf/**
@@ -81,11 +83,10 @@
 !/sway/**
 !/tmux/**
 !/tmux-sessionizer/**
-|/tmux-sessionizer-config/**
+!/tmux-sessionizer-config/**
 !/uwsm/**
-!/uwsm/vsg
 !/vim/**
-!vsg/**
+!/vsg/**
 !/waybar/**
 !/xava/**
 !/zsh/**
