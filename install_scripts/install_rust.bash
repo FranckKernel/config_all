@@ -1,12 +1,21 @@
 have() { command -v "$1" >/dev/null 2>&1; }
 
 pkg_install() {
-	if have pacman; then
+	if have yay; then
+		yay -S --needed --noconfirm "$@"
+	elif have paru; then
+		paru -S --needed --noconfirm "$@"
+	elif have pacman; then
 		sudo pacman -S --needed --noconfirm "$@"
 	elif have dnf; then
 		sudo dnf install -y "$@"
 	elif have brew; then
 		brew install "$@"
+	elif have zypper; then
+		sudo zypper install -y "${PKGS[@]}"
+	elif have apt; then
+		sudo apt update
+		sudo apt install -y "${PKGS[@]}"
 	else
 		echo "no supported package manager found" >&2
 		return 1
