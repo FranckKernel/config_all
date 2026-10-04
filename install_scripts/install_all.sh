@@ -12,6 +12,7 @@ SCRIPTS=(
 	install_lf.bash
 	install_nvim.bash
 	install_hyprland_gui.bash
+	install_aerospace_gui.bash
 )
 
 for script in "${SCRIPTS[@]}"; do
