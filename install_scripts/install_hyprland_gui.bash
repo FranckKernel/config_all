@@ -50,10 +50,12 @@ have() { command -v "$1" >/dev/null 2>&1; }
 # Edit this list to taste
 if have pacman; then
 	sudo pacman -S --needed --noconfirm \
-		hyprland xdg-desktop-portal-hyprland kitty waybar rofi hyprpaper hyprlock hypridle waybar ironbar
+		hyprland xdg-desktop-portal-hyprland kitty rofi hyprpaper hyprlock hypridle waybar ironbar polkit-kde-agent \
+		network-manager-applet kanata swayosd
 elif have dnf; then
 	sudo dnf install -y \
-		hyprland xdg-desktop-portal-hyprland kitty waybar wofi hyprpaper hyprlock hypridle waybar ironbar
+		hyprland xdg-desktop-portal-hyprland kitty rofi hyprpaper hyprlock hypridle waybar ironbar polkit-kde \
+		network-manager-applet kanata swayosd
 else
 	echo "no supported package manager (pacman/dnf) found" >&2
 	exit 1
