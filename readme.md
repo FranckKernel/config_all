@@ -53,7 +53,7 @@ sudo pacman -S rofi-wayland
 
 To install in one go, One simple command. Should work on Arch, Fedora and MacOS:
 ```bash 
-curl -fsSL https://raw.githubusercontent.com/FranckKernel/config_all/desktop/install_scripts/install_all.bash | bash
+curl -fsSL https://raw.githubusercontent.com/FranckKernel/config_all/desktop/install_scripts/install_all.sh | bash
 ```
 
 
