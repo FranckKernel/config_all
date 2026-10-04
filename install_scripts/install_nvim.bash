@@ -41,3 +41,5 @@ git submodule update --recursive
 # This fetches all submodule commits and checks them out.
 
 git submodule update --remote --recursive
+
+# Get luarocks
