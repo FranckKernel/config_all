@@ -62,6 +62,16 @@ ALL_PKGS=(
 
 have() { command -v "$1" >/dev/null 2>&1; }
 
+replace_pkg() {
+	local -n arr=$1
+	local old=$2 new=$3 i
+	for i in "${!arr[@]}"; do
+		if [[ "${arr[i]}" == "$old" ]]; then
+			arr[i]="$new"
+		fi
+	done
+}
+
 pkg_install() {
 	if have yay; then
 		yay -S --needed --noconfirm "$@"
@@ -112,6 +122,7 @@ else
 	# Try apt (Debian/Ubuntu), zypper (openSUSE), or pacman fallback
 	if have apt; then
 		sudo apt update
+		replace_pkg PKGS fd fd-find
 		sudo apt install -y "${PKGS[@]}"
 	elif have zypper; then
 		sudo zypper install -y "${PKGS[@]}"
