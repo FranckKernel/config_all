@@ -65,6 +65,8 @@ macOS)
 	fi
 	;;
 debian)
+	printf "\n\n\n================\n\n\n"
+	printf "ON Debian machine!!!!"
 	sudo apt install curl xz-utils fontconfig
 	mkdir -p ~/.local/share/fonts/JetBrainsMono
 	curl -fL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz | tar -xJ -C ~/.local/share/fonts/JetBrainsMono
