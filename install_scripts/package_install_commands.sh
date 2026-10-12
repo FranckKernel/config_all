@@ -55,9 +55,22 @@ ARCH_PKG=(
 	neofetch
 )
 
+DEBIAN_EXTRA_PKG=(
+	build-essential
+	pkg-config
+	libmagic-dev
+	unzip
+	fontconfig
+)
+
 ALL_PKGS=(
 	"${PKGS[@]}"
 	"${ARCH_PKG[@]}"
+)
+
+DEBIAN_PKG=(
+	"${PKGS[@]}"
+	"${DEBIAN_EXTRA_PKG[@]}"
 )
 
 have() { command -v "$1" >/dev/null 2>&1; }
@@ -123,7 +136,9 @@ else
 	if have apt; then
 		sudo apt update
 		replace_pkg PKGS fd fd-find
-		sudo apt install -y "${PKGS[@]}"
+		sudo apt install -y "${DEBIAN_PKG[@]}"
+		ln -sf "$(command -v fdfind)" ~/.local/bin/fd
+		ln -sf "$(command -v batcat)" ~/.local/bin/bat
 	elif have zypper; then
 		sudo zypper install -y "${PKGS[@]}"
 	elif have pacman; then
