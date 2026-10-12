@@ -134,9 +134,11 @@ else
 	echo -e "\n\n--------Installing Other Linux Packages -------------\n\n"
 	# Try apt (Debian/Ubuntu), zypper (openSUSE), or pacman fallback
 	if have apt; then
+		echo -e "\n\n =========== We are on DEBIAN ========= \n\n"
 		sudo apt update
 		replace_pkg DEBIAN_PKG fd fd-find
 		sudo apt install -y "${DEBIAN_PKG[@]}"
+		mkdir -p ~/.local/bin
 		ln -sf "$(command -v fdfind)" ~/.local/bin/fd
 		ln -sf "$(command -v batcat)" ~/.local/bin/bat
 	elif have zypper; then
