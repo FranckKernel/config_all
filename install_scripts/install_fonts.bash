@@ -68,9 +68,19 @@ debian)
 	printf "\n\n\n================\n\n\n"
 	printf "ON Debian machine!!!!"
 	sudo apt install curl xz-utils fontconfig
-	mkdir -p ~/.local/share/fonts/JetBrainsMono
-	curl -fL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz | tar -xJ -C ~/.local/share/fonts/JetBrainsMono
-	fc-cache -fv
+	if fc-list 2>/dev/null | grep -qi "JetBrainsMono Nerd Font"; then
+		echo "JetBrainsMono Nerd Font is already installed."
+	else
+		echo "Installing JetBrainsMono Nerd Font..."
+
+		sudo apt install -y curl xz-utils fontconfig
+		mkdir -p ~/.local/share/fonts/JetBrainsMono
+
+		curl -fL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz |
+			tar -xJ -C ~/.local/share/fonts/JetBrainsMono
+
+		fc-cache -f
+	fi
 
 	;;
 
