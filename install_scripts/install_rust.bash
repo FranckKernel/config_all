@@ -23,12 +23,15 @@ pkg_install() {
 }
 
 install_rustup() {
-	pkg_install rustup || return 1
 	if have pacman; then
-		# Arch's package has no toolchain until you pick one
+		pkg_install rustup || return 1
 		rustup default stable
+	elif have apt; then
+		# Debian: install rustup, then initialize the stable toolchain
+		pkg_install rustup || return 1
+		rustup default stable || return 1
 	else
-		# Fedora and Homebrew ship rustup-init instead
+		pkg_install rustup || return 1
 		if have brew; then
 			export PATH="$(brew --prefix rustup)/bin:$PATH"
 		fi
