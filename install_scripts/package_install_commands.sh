@@ -57,6 +57,7 @@ ARCH_PKG=(
 
 DEBIAN_EXTRA_PKG=(
 	build-essential
+	libssl-dev
 	pkg-config
 	libmagic-dev
 	unzip
@@ -69,8 +70,8 @@ ALL_PKGS=(
 )
 
 DEBIAN_PKG=(
-	"${PKGS[@]}"
 	"${DEBIAN_EXTRA_PKG[@]}"
+	"${PKGS[@]}"
 )
 
 have() { command -v "$1" >/dev/null 2>&1; }
