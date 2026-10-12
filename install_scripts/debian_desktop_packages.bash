@@ -43,13 +43,24 @@ if [[ "$1" == "i3" ]]; then
 	sudo apt install -y xclip xdotool feh rofi picom brightnessctl pavucontrol waybar polybar
 fi
 
-# To install vscode
+# Install VS Code on Debian/Ubuntu
 sudo apt install -y wget gpg
-sudo install -d -m 755 /etc/apt/keyrings
-wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor >/tmp/microsoft.gpg
-sudo install -o root -g root -m 644 /tmp/microsoft.gpg /etc/apt/keyrings/microsoft-archive-keyring.gpg
-rm -f /tmp/microsoft.gpg
-echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/microsoft-archive-keyring.gpg] https://packages.microsoft.com/repos/code stable main" | sudo tee /etc/apt/sources.list.d/vscode.list >/dev/null
+
+KEYRING="/etc/apt/keyrings/microsoft-archive-keyring.gpg"
+REPO="/etc/apt/sources.list.d/vscode.list"
+
+if [[ ! -f "$KEYRING" ]]; then
+	sudo install -d -m 755 /etc/apt/keyrings
+	wget -qO- https://packages.microsoft.com/keys/microsoft.asc |
+		gpg --dearmor >/tmp/microsoft.gpg
+	sudo install -o root -g root -m 644 /tmp/microsoft.gpg "$KEYRING"
+	rm -f /tmp/microsoft.gpg
+fi
+
+if [[ ! -f "$REPO" ]]; then
+	echo "deb [arch=amd64,arm64,armhf signed-by=$KEYRING] https://packages.microsoft.com/repos/code stable main" |
+		sudo tee "$REPO" >/dev/null
+fi
 
 sudo apt update
 sudo apt install -y code
