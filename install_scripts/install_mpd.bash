@@ -61,6 +61,8 @@ CONF="$MPD_CONF_DIR/mpd.conf"
 info "Creating mpd files and directories"
 mkdir -p "$MPD_CONF_DIR/playlists"
 touch "$HOME/.config"/{mpd.db,mpd.log,mpd.pid,mpd.mpdstate}
+touch "$HOME/.mpd"/{mpd.db,mpd.log,mpd.pid,mpd.mpdstate}
+# make both since i switch between them when mpd breaks
 
 [ -d "$HOME/Music/My Music" ] || warn "~/Music/My Music does not exist"
 
