@@ -51,6 +51,7 @@ PKGS=(
 	wget
 	luarocks
 	tree-sitter-cli
+	npm
 	# luarocks is for neovim image.nvim, but fuck it, putting it here
 )
 
