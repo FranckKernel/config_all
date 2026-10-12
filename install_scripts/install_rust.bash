@@ -12,10 +12,10 @@ pkg_install() {
 	elif have brew; then
 		brew install "$@"
 	elif have zypper; then
-		sudo zypper install -y "${PKGS[@]}"
+		sudo zypper install -y "$@"
 	elif have apt; then
 		sudo apt update
-		sudo apt install -y "${PKGS[@]}"
+		sudo apt install -y "$@"
 	else
 		echo "no supported package manager found" >&2
 		return 1
