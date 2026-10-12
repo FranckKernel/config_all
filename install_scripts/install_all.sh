@@ -7,6 +7,7 @@ BASE_URL="https://raw.githubusercontent.com/FranckKernel/config_all/desktop/inst
 SCRIPTS=(
 	install_rust.bash
 	install_fonts.bash
+	install_kitty.bash
 	install_zsh.bash
 	install_tmux.bash
 	install_lf.bash
