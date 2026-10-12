@@ -67,6 +67,7 @@ DEBIAN_EXTRA_PKG=(
 	libmagic-dev
 	unzip
 	fontconfig
+	python3.13-venv
 )
 
 ALL_PKGS=(
