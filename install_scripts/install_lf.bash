@@ -101,6 +101,15 @@ else
 	esac
 fi
 
+have() { command -v "$1" >/dev/null 2>&1; }
+if have cargo; then
+	cargo install trashy
+else
+	echo -e "\n\n Doesn't have cargo? \n\n"
+fi
+
+echo "Done. Run: lf"
+exit 0
 # --- starter config ---
 cfg="${XDG_CONFIG_HOME:-$HOME/.config}/lf/lfrc"
 if [[ ! -f "$cfg" ]]; then
@@ -108,5 +117,3 @@ if [[ ! -f "$cfg" ]]; then
 	curl -fsSL https://raw.githubusercontent.com/gokcehan/lf/master/etc/lfrc.example -o "$cfg"
 	echo "Wrote starter config to $cfg"
 fi
-
-echo "Done. Run: lf"
