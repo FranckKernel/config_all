@@ -21,7 +21,6 @@ cd ~/.config/zsh || {
 }
 chmod 744 ./install_commands.sh
 ./zsh_clone_command.sh # clones oh-my-zsh and powerlevel-10k and other things
-./package_install_commands.sh
 # This also install a bunch of packages, look at it. It's a system wide install, you'll need
 # admin privilede. It's supposed to just work for mac and arch. (I use arch only, mac was for friends)
 # So, it should work on mac.
@@ -37,7 +36,3 @@ ln -s ~/.config/zsh/.p10k.zsh ~/.p10k.zsh
 [ -f ~/.zshrc ] && mv --backup=numbered ~/.zshrc ~/.zshrc.bak
 # Create a symbolic link. If this fail, then it is bad
 ln -s ~/.config/zsh/.zshrc ~/.zshrc
-
-# ----- Optional --------
-./install_lf_config.sh
-# ----- End of Optional -----

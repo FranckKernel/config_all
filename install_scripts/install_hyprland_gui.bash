@@ -12,8 +12,8 @@ HYPR_DIR="$HOME/.config/hypr"
 ROFI_REPO="https://github.com/FranckKernel/config_rofi"
 ROFI_DIR="$HOME/.config/rofi"
 
-WAYBAR_REPO="https://github.com/FranckKernel/config_ironbar"
-WAYBAR_DIR="$HOME/.config/ironbar"
+WAYBAR_REPO="https://github.com/FranckKernel/config_waybar"
+WAYBAR_DIR="$HOME/.config/waybar"
 
 IRONBAR_REPO="https://github.com/FranckKernel/config_ironbar"
 IRONBAR_DIR="$HOME/.config/ironbar"

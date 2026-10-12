@@ -10,6 +10,9 @@ if [ -f /etc/os-release ]; then
 		echo "Detected: Fedora Linux"
 		SYSTEM="fedora"
 		sudo dnf copr enable dejan/lazygit
+	elif command -v apt-get >/dev/null 2>&1; then
+		echo "Detected: Debian-based Linux ($ID)"
+		SYSTEM="debian"
 	else
 		echo "Detected: Other Linux ($ID)"
 		SYSTEM="linux"
@@ -86,6 +89,20 @@ replace_pkg() {
 	done
 }
 
+remove_pkg() {
+	local -n arr=$1
+	shift
+	local new=() p r skip
+	for p in "${arr[@]}"; do
+		skip=0
+		for r in "$@"; do
+			[[ "$p" == "$r" ]] && skip=1
+		done
+		((skip)) || new+=("$p")
+	done
+	arr=("${new[@]}")
+}
+
 pkg_install() {
 	if have yay; then
 		yay -S --needed --noconfirm "$@"
@@ -131,18 +148,20 @@ elif [[ "$SYSTEM" == "macOS" ]]; then
 	echo -e "\n\n--------Installing macOS Packages -------------\n\n"
 	brew install "${PKGS[@]}"
 
+elif [[ "$SYSTEM" == "debian" ]]; then
+	echo -e "\n\n =========== We are on DEBIAN ========= \n\n"
+	sudo apt update
+	replace_pkg DEBIAN_PKG fd fd-find
+	remove_pkg DEBIAN_PKG neovim
+	sudo apt install -y "${DEBIAN_PKG[@]}"
+	mkdir -p ~/.local/bin
+	ln -sf "$(command -v fdfind)" ~/.local/bin/fd
+	ln -sf "$(command -v batcat)" ~/.local/bin/bat
+	# Neovim is installed another way
 else
 	echo -e "\n\n--------Installing Other Linux Packages -------------\n\n"
 	# Try apt (Debian/Ubuntu), zypper (openSUSE), or pacman fallback
-	if have apt; then
-		echo -e "\n\n =========== We are on DEBIAN ========= \n\n"
-		sudo apt update
-		replace_pkg DEBIAN_PKG fd fd-find
-		sudo apt install -y "${DEBIAN_PKG[@]}"
-		mkdir -p ~/.local/bin
-		ln -sf "$(command -v fdfind)" ~/.local/bin/fd
-		ln -sf "$(command -v batcat)" ~/.local/bin/bat
-	elif have zypper; then
+	if have zypper; then
 		sudo zypper install -y "${PKGS[@]}"
 	elif have pacman; then
 		sudo pacman -S --needed "${PKGS[@]}"
