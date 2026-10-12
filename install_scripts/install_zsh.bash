@@ -38,3 +38,8 @@ ln -s ~/.config/zsh/.p10k.zsh ~/.p10k.zsh
 # Create a symbolic link. If this fail, then it is bad
 ln -s ~/.config/zsh/.zshrc ~/.zshrc
 ln -s ~/.config/zsh/.zprofile ~/.zprofile
+
+mkdir -p "$HOME/.local/bin"
+if [[ ! -e "$HOME/.local/bin/python" ]]; then
+	ln -s "$(command -v python3)" "$HOME/.local/bin/python"
+fi
