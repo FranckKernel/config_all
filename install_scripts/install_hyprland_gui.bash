@@ -58,6 +58,7 @@ elif have dnf; then
 		network-manager-applet kanata swayosd
 elif have apt; then
 	echo "On debian, no need to install hyprland"
+	exit 0
 else
 	echo "no supported package manager (pacman/dnf) found" >&2
 	exit 1
