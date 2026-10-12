@@ -31,3 +31,7 @@ POLYBAR_DIR="$HOME/.config/polybar"
 
 safe_clone "$I3_REPO" "$I3_DIR"
 safe_clone "$POLYBAR_REPO" "$POLYBAR_DIR"
+
+mkdir -p "$HOME/.config/picom"
+curl -fsSL https://raw.githubusercontent.com/FranckKernel/config_all/desktop/picom/picom.conf \
+	-o "$HOME/.config/picom/picom.conf"
