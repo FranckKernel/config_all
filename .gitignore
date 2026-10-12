@@ -34,7 +34,6 @@
 !/nvim/
 !/picom/
 !/polybar/
-!/polybar/
 !/rmpc/
 !/rofi/
 !/sway/
@@ -75,7 +74,6 @@
 !/ncmpcpp/**
 !/nvim/**
 !/picom/**
-!/polybar/**
 !/polybar/**
 !/rmpc/**
 !/rofi/**

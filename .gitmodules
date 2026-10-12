@@ -121,3 +121,6 @@
 	path = test
 	url = https://github.com/FranckKernel/config_test
 
+[submodule "polybar"]
+	path = polybar
+	url = https://github.com/FranckKernel/config_polybar
