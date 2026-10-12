@@ -20,5 +20,6 @@ SCRIPTS=(
 )
 
 for script in "${SCRIPTS[@]}"; do
+	printf "\n\n=========== Installing and configuring %s ======= \n\n" "$script"
 	curl -fsSL "$BASE_URL/$script" | bash
 done
