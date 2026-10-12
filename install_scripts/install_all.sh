@@ -13,9 +13,9 @@ SCRIPTS=(
 	install_tmux.bash
 	install_lf.bash
 	install_ctpv_for_lf.sh
+	install_i3.bash
 	install_nvim.bash
 	install_hyprland_gui.bash
-	install_i3.bash
 	install_aerospace_gui.bash
 )
 
