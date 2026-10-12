@@ -28,6 +28,7 @@ fi
 
 # Packages list (common for all supported systems)
 PKGS=(
+	zsh
 	zoxide
 	atuin
 	thefuck
