@@ -55,6 +55,10 @@ PKGS=(
 	# luarocks is for neovim image.nvim, but fuck it, putting it here
 )
 
+# Need ruby/gem for solargraph
+# Need go for gopls
+# But it's extra, get it yourself
+
 ARCH_PKG=(
 	xclip
 	wl-clipboard

@@ -48,3 +48,6 @@ have() { command -v "$1" >/dev/null 2>&1; }
 if have apt; then
 	~/.config/nvim/install_nvim/install.sh
 fi
+
+# Need ruby/gem for solargraph
+# Need go for gopls
