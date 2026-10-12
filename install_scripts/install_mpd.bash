@@ -3,6 +3,23 @@
 # refers to (db, log, pid, state, sticker, playlists, fifo), then switch mpd
 # from the system service to the user service.
 
+# For now, mpd setup will be Linux Systemctl only
+if [[ "$(uname -s)" != "Linux" ]]; then
+	echo "Not Linux, skipping hyprland install."
+	exit 0
+fi
+
+have() { command -v "$1" >/dev/null 2>&1; }
+if ! have systemctl; then
+	echo "No systemctl, I'm not gonna install mpd"
+	exit 0
+fi
+
+if ! have mpd || ! have mpd; then
+	echo "Install mpd and mpc yourself if you want it"
+	exit 0
+fi
+
 set -euo pipefail
 
 REPO="${REPO:-https://github.com/FranckKernel/config_all}"

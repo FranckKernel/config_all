@@ -49,10 +49,15 @@ PKGS=(
 	coreutils
 	curl
 	wget
-	luarocks
+
+	# for neovim
 	tree-sitter-cli
 	npm
+	luarocks
 	# luarocks is for neovim image.nvim, but fuck it, putting it here
+	# mpc and mpd are just so one part of polybar and waybar isn't fucked
+	mpc
+	mpd
 )
 
 # Need ruby/gem for solargraph
