@@ -5,8 +5,8 @@ set -e
 BASE_URL="https://raw.githubusercontent.com/FranckKernel/config_all/desktop/install_scripts"
 
 SCRIPTS=(
-	package_install_commands.sh
 	install_rust.bash
+	package_install_commands.sh
 	install_fonts.bash
 	install_kitty.bash
 	install_zsh.bash
