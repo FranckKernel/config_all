@@ -60,7 +60,7 @@ CONF="$MPD_CONF_DIR/mpd.conf"
 # --- 2. create the files/dirs the config points to ---------------------------
 info "Creating mpd files and directories"
 mkdir -p "$MPD_CONF_DIR/playlists"
-touch "$HOME/.mpd"/{mpd.db,mpd.log,mpd.pid,mpd.mpdstate}
+touch "$HOME/.config"/{mpd.db,mpd.log,mpd.pid,mpd.mpdstate}
 
 [ -d "$HOME/Music/My Music" ] || warn "~/Music/My Music does not exist"
 
