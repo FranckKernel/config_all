@@ -56,6 +56,8 @@ elif have dnf; then
 	sudo dnf install -y \
 		hyprland xdg-desktop-portal-hyprland kitty rofi hyprpaper hyprlock hypridle waybar ironbar polkit-kde \
 		network-manager-applet kanata swayosd
+elif have apt; then
+	echo "On debian, no need to install hyprland"
 else
 	echo "no supported package manager (pacman/dnf) found" >&2
 	exit 1
