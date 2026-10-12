@@ -4,7 +4,7 @@
 
 # API settings ________________________________________________________________
 
-APIKEY=`cat $HOME/.config/polybar.old/weather-polybar-plugin/.owm-key`
+APIKEY=`cat $HOME/.config/polybar/weather-polybar-plugin/.owm-key`
 # if you leave these empty location will be picked based on your ip-adres
 CITY_NAME='Saint-Bruno-de-Montarville'
 COUNTRY_CODE='CA'

@@ -5,16 +5,16 @@ notify-send "Launched Polybar"
 #config_path="~/.config/polybar/config"
 #bar_name="example"
 
-config_path="$HOME/.config/polybar.old/config"
+config_path="$HOME/.config/polybar/config"
 
 bar_name="${1:-bar1}"
 echo "in launch: Bar_name = $bar_name"
 
 #kill the bar being taken care off -- This should be redundant
-$HOME/.config/polybar.old/polykill_bar $1
+$HOME/.config/polybar/polykill_bar $1
 if [ "$bar_name" = "bar2" ] || [ "$bar_name" = "bar3" ] ; then
-  "$HOME/.config/polybar.old/polykill_bar" "bar2"
-  "$HOME/.config/polybar.old/polykill_bar" "bar3"
+  "$HOME/.config/polybar/polykill_bar" "bar2"
+  "$HOME/.config/polybar/polykill_bar" "bar3"
 fi
 
 

@@ -34,7 +34,7 @@
 !/nvim/
 !/picom/
 !/polybar/
-!/polybar.old/
+!/polybar/
 !/rmpc/
 !/rofi/
 !/sway/
@@ -76,7 +76,7 @@
 !/nvim/**
 !/picom/**
 !/polybar/**
-!/polybar.old/**
+!/polybar/**
 !/rmpc/**
 !/rofi/**
 !/sketchybar/**
@@ -102,7 +102,7 @@ lf/lf source code
 "lf/lf source code"
 ironbar/ironbar
 thefuck/__pycache__/settings.cpython-312.pyc
-/polybar.old/weather-polybar-plugin/.owm-key
+/polybar/weather-polybar-plugin/.owm-key
 
 
 

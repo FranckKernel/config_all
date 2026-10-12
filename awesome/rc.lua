@@ -600,7 +600,7 @@ beautiful.useless_gap = 5
 awful.spawn.with_shell("setxkbmap ca")
 awful.spawn.with_shell("picom")
 awful.spawn.with_shell("/home/francois/Pictures/Slideshow_Scripts/Parent/nohorny_slideshow.sh")
-awful.spawn.with_shell("$HOME/.config/polybar.old/all_bars.sh")
+awful.spawn.with_shell("$HOME/.config/polybar/all_bars.sh")
 
 
 awful.spawn.with_shell("bash -c 'unset HYPRLAND_INSTANCE_SIGNATURE'   ")
