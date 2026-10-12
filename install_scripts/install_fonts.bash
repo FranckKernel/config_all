@@ -13,6 +13,9 @@ if [ -f /etc/os-release ]; then
 	elif [[ "$ID" == "fedora" || "$ID_LIKE" == "fedora" ]]; then
 		echo "Detected: Fedora Linux"
 		SYSTEM="fedora"
+	elif command -v apt-get >/dev/null 2>&1; then
+		echo "Detected: Debian-based Linux ($ID)"
+		SYSTEM="debian"
 	else
 		echo "Detected: Other Linux ($ID)"
 		SYSTEM="linux"
@@ -60,6 +63,13 @@ macOS)
 		echo "Installing $FONT..."
 		brew install --cask font-jetbrains-mono-nerd-font
 	fi
+	;;
+debian)
+	sudo apt install curl xz-utils fontconfig
+	mkdir -p ~/.local/share/fonts/JetBrainsMono
+	curl -fL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz | tar -xJ -C ~/.local/share/fonts/JetBrainsMono
+	fc-cache -fv
+
 	;;
 
 linux)
