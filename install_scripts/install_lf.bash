@@ -13,7 +13,7 @@ git_clone() {
 	git clone https://github.com/PoutineSyropErable/config_lf ~/.config/lf
 }
 
-# git_clone
+git_clone
 
 # ================== Actually Installing Lf itself:
 #!/usr/bin/env bash
