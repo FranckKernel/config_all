@@ -52,40 +52,17 @@ CONF="$MPD_CONF_DIR/mpd.conf"
 [ -f "$CONF" ] || die "$CONF missing after copy; check the repo layout."
 
 # MPD does not expand $HOME, so replace it with the real path
-if grep -q '\$HOME' "$CONF"; then
-	sed -i "s|\$HOME|$HOME|g" "$CONF"
-	info "Expanded \$HOME in $CONF"
-fi
+# if grep -q '\$HOME' "$CONF"; then
+# 	sed -i "s|\$HOME|$HOME|g" "$CONF"
+# 	info "Expanded \$HOME in $CONF"
+# fi
 
 # --- 2. create the files/dirs the config points to ---------------------------
-# read an uncommented setting's quoted value from mpd.conf, expanding ~
-conf_path() {
-	local v
-	v="$(grep -E "^[[:space:]]*$1[[:space:]]+\"" "$CONF" | head -n1 |
-		sed -E 's/^[^"]*"([^"]*)".*/\1/')" || true
-	[ -n "$v" ] || return 0
-	printf '%s\n' "${v/#\~/$HOME}"
-}
+info "Creating mpd files and directories"
+mkdir -p "$MPD_CONF_DIR/playlists"
+touch "$HOME/.mpd"/{mpd.db,mpd.log,mpd.pid,mpd.mpdstate}
 
-info "Creating files and directories referenced by mpd.conf"
-for key in db_file log_file pid_file state_file sticker_file; do
-	f="$(conf_path "$key")"
-	[ -n "$f" ] || continue
-	mkdir -p "$(dirname "$f")"
-	touch "$f"
-	info "  $key -> $f"
-done
-
-pl="$(conf_path playlist_directory)"
-if [ -n "$pl" ]; then
-	mkdir -p "$pl"
-	info "  playlist_directory -> $pl"
-fi
-
-md="$(conf_path music_directory)"
-if [ -n "$md" ] && [ ! -d "$md" ]; then
-	warn "music_directory '$md' does not exist"
-fi
+[ -d "$HOME/Music/My Music" ] || warn "~/Music/My Music does not exist"
 
 if [ ! -p "$FIFO" ]; then
 	rm -f "$FIFO"
