@@ -39,6 +39,14 @@ ln -s ~/.config/zsh/.p10k.zsh ~/.p10k.zsh
 ln -s ~/.config/zsh/.zshrc ~/.zshrc
 ln -s ~/.config/zsh/.zprofile ~/.zprofile
 
+# Making the python symlink if not arch (arch does it by itself)
+source /etc/os-release
+os="$ID"
+
+if [[ "$os" == "arch" ]]; then
+	exit 0
+fi
+
 mkdir -p "$HOME/.local/bin"
 if [[ ! -e "$HOME/.local/bin/python" ]]; then
 	ln -s "$(command -v python3)" "$HOME/.local/bin/python"
