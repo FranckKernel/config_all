@@ -27,6 +27,7 @@ chmod 744 ./install_commands.sh
 
 # Backup existing ~/.zshrc if it exists, using numbered backups
 [ -f ~/.zshrc ] && mv --backup=numbered ~/.zshrc ~/.zshrc.bak
+[ -f ~/.zprofile ] && mv --backup=numbered ~/.zprofile ~/.zprofile.bak
 
 # must do it first, because it will change the zsh config
 [ -f ~/.p10k.zsh ] && mv --backup=numbered ~/.p10k.zsh ~/.p10k.zsh.bak
@@ -36,3 +37,4 @@ ln -s ~/.config/zsh/.p10k.zsh ~/.p10k.zsh
 [ -f ~/.zshrc ] && mv --backup=numbered ~/.zshrc ~/.zshrc.bak
 # Create a symbolic link. If this fail, then it is bad
 ln -s ~/.config/zsh/.zshrc ~/.zshrc
+ln -s ~/.config/zsh/.zprofile ~/.zprofile
