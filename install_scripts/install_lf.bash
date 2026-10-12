@@ -104,9 +104,10 @@ fi
 have() { command -v "$1" >/dev/null 2>&1; }
 if have cargo; then
 	cargo install trashy
-	[ -f ~/.config/cargo/trash ] && ln -s ~/.cargo/bin/trash ~/.cargo/bin/trashy
+	[ -f ~/.cargo/bin/trash ] && ln -s ~/.cargo/bin/trash ~/.cargo/bin/trashy
 else
 	echo -e "\n\n Doesn't have cargo? \n\n"
+	exit 1
 fi
 
 echo "Done. Run: lf"
