@@ -67,7 +67,7 @@ macOS)
 debian)
 	printf "\n\n\n================\n\n\n"
 	printf "ON Debian machine!!!!"
-	sudo apt install curl xz-utils fontconfig
+	sudo apt -y install curl xz-utils fontconfig
 	if fc-list 2>/dev/null | grep -qi "JetBrainsMono Nerd Font"; then
 		echo "JetBrainsMono Nerd Font is already installed."
 	else
