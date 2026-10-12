@@ -23,19 +23,21 @@ pkg_install() {
 }
 
 install_rustup() {
+	if have rustup; then
+		return 0
+	fi
+
 	if have pacman; then
 		pkg_install rustup || return 1
-		rustup default stable
-	elif have apt; then
-		# Debian: install rustup, then initialize the stable toolchain
-		pkg_install rustup || return 1
 		rustup default stable || return 1
-	else
+	elif have brew; then
 		pkg_install rustup || return 1
-		if have brew; then
-			export PATH="$(brew --prefix rustup)/bin:$PATH"
-		fi
+		export PATH="$(brew --prefix rustup)/bin:$PATH"
 		rustup-init -y || return 1
+		. "$HOME/.cargo/env"
+	else
+		have curl || pkg_install curl || return 1
+		curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y || return 1
 		. "$HOME/.cargo/env"
 	fi
 }
