@@ -135,7 +135,7 @@ else
 	# Try apt (Debian/Ubuntu), zypper (openSUSE), or pacman fallback
 	if have apt; then
 		sudo apt update
-		replace_pkg PKGS fd fd-find
+		replace_pkg DEBIAN_PKG fd fd-find
 		sudo apt install -y "${DEBIAN_PKG[@]}"
 		ln -sf "$(command -v fdfind)" ~/.local/bin/fd
 		ln -sf "$(command -v batcat)" ~/.local/bin/bat
