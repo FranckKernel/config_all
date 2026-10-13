@@ -103,20 +103,43 @@ fi
 
 have() { command -v "$1" >/dev/null 2>&1; }
 
-if have cargo; then
-	cargo install trashy
+if have trashy || [ -x "$HOME/.cargo/bin/trashy" ]; then
+	echo "Done. Run: lf"
+	exit 0
+fi
 
-	BIN="$HOME/.cargo/bin"
-	if [ -x "$BIN/trashy" ]; then
-		: # already named trashy, nothing to do
-	elif [ -x "$BIN/trash" ]; then
-		ln -sf "$BIN/trash" "$BIN/trashy"
-	else
-		echo "Neither trash nor trashy found in $BIN after install" >&2
-		exit 1
+# If only trash exists, check what it is
+if [ -x "$BIN/trash" ]; then
+	# If trash is a symlink already pointing to trashy, we're good
+	# (shouldn't happen if trashy doesn't exist)
+	# If trash is a wrapper calling trashy, we have a problem
+	# If trash is the real binary, symlink trashy -> trash
+	if file "$BIN/trash" | grep -q 'symbolic link'; then
+		# It's a symlink; follow it
+		target="$(readlink -f "$BIN/trash")"
+		if [ "$target" = "$BIN/trashy" ]; then
+			echo "Done."
+			exit 0
+		fi
 	fi
-else
+	echo -e "\n\n\n =================== We have a trash already in cargo, if it's not trashy, but trash-cli, then we have an issue! ================ \n\n\n "
+	ln -sf "$BIN/trash" "$BIN/trashy"
+fi
+
+if ! have cargo; then
 	printf '\n\n cargo not found \n\n' >&2
+	exit 1
+fi
+
+cargo install --force trashy
+
+BIN="$HOME/.cargo/bin"
+if [ -x "$BIN/trashy" ]; then
+	: # already named trashy, nothing to do
+elif [ -x "$BIN/trash" ] && file -b "$BIN/trash" | grep -q '^ELF'; then
+	ln -sf "$BIN/trash" "$BIN/trashy"
+else
+	echo "No usable trashy binary found in $BIN" >&2
 	exit 1
 fi
 
