@@ -23,6 +23,9 @@ safe_clone() {
 	}
 }
 
+KEYBINDS_REPO="https://github.com/PoutineSyropErable/keybindshttps://github.com/PoutineSyropErable/keybinds"
+KEYBINDS_DIR="$HOME/keybinds"
+
 I3_REPO="https://github.com/FranckKernel/config_i3"
 I3_DIR="$HOME/.config/i3"
 
@@ -31,6 +34,9 @@ POLYBAR_DIR="$HOME/.config/polybar"
 
 safe_clone "$I3_REPO" "$I3_DIR"
 safe_clone "$POLYBAR_REPO" "$POLYBAR_DIR"
+safe_clone "$KEYBINDS_REPO" "$KEYBINDS_DIR"
+
+git clone https://github.com/PoutineSyropErable/keybinds --depth=1 ~/keybinds
 
 mkdir -p "$HOME/.config/picom"
 curl -fsSL https://raw.githubusercontent.com/FranckKernel/config_all/desktop/picom/picom.conf \
