@@ -1,22 +1,5 @@
 #!/usr/bin/env bash
 
-if [[ "$(uname -s)" == "Darwin" ]]; then
-	brew install coreutils
-	alias mv='gmv'
-fi
-
-git_clone() {
-	# Backup existing ~/.config/lf if it exists, using numbered backups (~1, ~2, etc.)
-	[ -d ~/.config/lf ] && mv --backup=numbered ~/.config/lf ~/.config/lf_backup
-
-	# Clone the lf configuration repository
-	git clone https://github.com/PoutineSyropErable/config_lf ~/.config/lf
-}
-
-git_clone
-
-# ================== Actually Installing Lf itself:
-#!/usr/bin/env bash
 set -euo pipefail
 
 # --- detect system ---
@@ -36,10 +19,38 @@ elif [[ -f /etc/os-release ]]; then
 fi
 
 echo "Detected: $SYSTEM"
-[[ "$SYSTEM" == "unknown" ]] && {
-	echo "Unsupported OS"
+if [[ "$SYSTEM" == "unknown" ]]; then
+	echo "Unsupported OS" >&2
 	exit 2
+fi
+
+# (2) define BIN before any use
+BIN="$HOME/.cargo/bin"
+export PATH="$BIN:$HOME/.local/bin:$PATH"
+# so what if its present twice, should help if called manually
+
+have() { command -v "$1" >/dev/null 2>&1; }
+
+safe_clone() {
+	local repo="$1"
+	local dir="$2"
+
+	if [[ -e "$dir" || -L "$dir" ]]; then
+		mv "$dir" "${dir}.bak.$(date +%Y%m%d-%H%M%S)" || {
+			echo "could not back up $dir" >&2
+			return 1
+		}
+	fi
+
+	git clone "$repo" "$dir" || {
+		echo "git clone failed: $repo" >&2
+		return 1
+	}
 }
+
+safe_clone https://github.com/PoutineSyropErable/config_lf ~/.config/lf
+
+# ================== Actually Installing Lf itself:
 
 # --- fallback: official release binary ---
 install_lf_binary() {
@@ -78,7 +89,7 @@ install_lf_binary() {
 }
 
 # --- install lf ---
-if command -v lf >/dev/null 2>&1; then
+if have lf; then
 	echo "lf is already installed: $(lf -version)"
 else
 	case "$SYSTEM" in
@@ -89,7 +100,7 @@ else
 		sudo dnf install -y lf || install_lf_binary
 		;;
 	macos)
-		if command -v brew >/dev/null 2>&1; then
+		if have brew; then
 			brew install lf
 		else
 			install_lf_binary
@@ -101,31 +112,6 @@ else
 	esac
 fi
 
-have() { command -v "$1" >/dev/null 2>&1; }
-
-if have trashy || [ -x "$HOME/.cargo/bin/trashy" ]; then
-	echo "Done. Run: lf"
-	exit 0
-fi
-
-# If only trash exists, check what it is
-if [ -x "$BIN/trash" ]; then
-	# If trash is a symlink already pointing to trashy, we're good
-	# (shouldn't happen if trashy doesn't exist)
-	# If trash is a wrapper calling trashy, we have a problem
-	# If trash is the real binary, symlink trashy -> trash
-	if file "$BIN/trash" | grep -q 'symbolic link'; then
-		# It's a symlink; follow it
-		target="$(readlink -f "$BIN/trash")"
-		if [ "$target" = "$BIN/trashy" ]; then
-			echo "Done."
-			exit 0
-		fi
-	fi
-	echo -e "\n\n\n =================== We have a trash already in cargo, if it's not trashy, but trash-cli, then we have an issue! ================ \n\n\n "
-	ln -sf "$BIN/trash" "$BIN/trashy"
-fi
-
 if ! have cargo; then
 	printf '\n\n cargo not found \n\n' >&2
 	exit 1
@@ -133,7 +119,6 @@ fi
 
 cargo install --force trashy
 
-BIN="$HOME/.cargo/bin"
 if [ -x "$BIN/trashy" ]; then
 	: # already named trashy, nothing to do
 elif [ -x "$BIN/trash" ] && file -b "$BIN/trash" | grep -q '^ELF'; then
@@ -144,11 +129,3 @@ else
 fi
 
 echo "Done. Run: lf"
-exit 0
-# --- starter config ---
-cfg="${XDG_CONFIG_HOME:-$HOME/.config}/lf/lfrc"
-if [[ ! -f "$cfg" ]]; then
-	mkdir -p "$(dirname "$cfg")"
-	curl -fsSL https://raw.githubusercontent.com/gokcehan/lf/master/etc/lfrc.example -o "$cfg"
-	echo "Wrote starter config to $cfg"
-fi
