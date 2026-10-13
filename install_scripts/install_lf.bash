@@ -102,11 +102,21 @@ else
 fi
 
 have() { command -v "$1" >/dev/null 2>&1; }
+
 if have cargo; then
 	cargo install trashy
-	[ -f ~/.cargo/bin/trash ] && ln -s ~/.cargo/bin/trash ~/.cargo/bin/trashy
+
+	BIN="$HOME/.cargo/bin"
+	if [ -x "$BIN/trashy" ]; then
+		: # already named trashy, nothing to do
+	elif [ -x "$BIN/trash" ]; then
+		ln -sf "$BIN/trash" "$BIN/trashy"
+	else
+		echo "Neither trash nor trashy found in $BIN after install" >&2
+		exit 1
+	fi
 else
-	echo -e "\n\n Doesn't have cargo? \n\n"
+	printf '\n\n cargo not found \n\n' >&2
 	exit 1
 fi
 
