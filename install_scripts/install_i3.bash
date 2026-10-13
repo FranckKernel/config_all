@@ -23,7 +23,7 @@ safe_clone() {
 	}
 }
 
-KEYBINDS_REPO="https://github.com/PoutineSyropErable/keybindshttps://github.com/PoutineSyropErable/keybinds"
+KEYBINDS_REPO="https://github.com/PoutineSyropErable/keybinds"
 KEYBINDS_DIR="$HOME/keybinds"
 
 I3_REPO="https://github.com/FranckKernel/config_i3"
