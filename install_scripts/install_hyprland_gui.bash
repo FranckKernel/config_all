@@ -39,8 +39,8 @@ safe_clone() {
 	}
 }
 
-safe_clone "$HYPR_REPO" "$HYPR_DIR"
 safe_clone "$ROFI_REPO" "$ROFI_DIR"
+safe_clone "$HYPR_REPO" "$HYPR_DIR"
 safe_clone "$IRONBAR_REPO" "$IRONBAR_DIR"
 safe_clone "$WAYBAR_REPO" "$WAYBAR_DIR"
 

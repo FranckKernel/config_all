@@ -33,6 +33,7 @@ POLYBAR_REPO="https://github.com/FranckKernel/config_polybar"
 POLYBAR_DIR="$HOME/.config/polybar"
 
 safe_clone "$I3_REPO" "$I3_DIR"
+safe_clone "$ROFI_REPO" "$ROFI_DIR"
 safe_clone "$POLYBAR_REPO" "$POLYBAR_DIR"
 safe_clone "$KEYBINDS_REPO" "$KEYBINDS_DIR"
 

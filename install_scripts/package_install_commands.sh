@@ -58,6 +58,11 @@ PKGS=(
 	# mpc and mpd are just so one part of polybar and waybar isn't fucked
 	mpc
 	mpd
+
+	# just more stuff to install. bc is used by i3 bottom polybar
+	# A math bash util
+	bc
+	btop
 )
 
 # Need ruby/gem for solargraph
