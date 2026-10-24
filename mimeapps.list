@@ -21,6 +21,7 @@ x-scheme-handler/mailto=org.kde.kmail2.desktop;userapp-Evolution-032GL3.desktop;
 text/x-csrc=Arduino IDE.desktop;
 application/typescript=Arduino IDE.desktop;
 text/plain=com.microsoft.VSCode.desktop;
+video/matroska=vlc.desktop;zen.desktop;
 
 [Default Applications]
 application/json=nvim.desktop
